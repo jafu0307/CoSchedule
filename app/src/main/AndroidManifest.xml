@@ -20,6 +20,12 @@
 
         <service android:name=".CalendarIntentService" />
         <service android:name=".CalendarService" />
+
+        <receiver android:name=".CalendarAlarmReceiver">
+            <intent-filter>
+                <action android:name="CLOCK" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

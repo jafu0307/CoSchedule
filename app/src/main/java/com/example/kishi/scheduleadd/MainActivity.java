@@ -1,5 +1,6 @@
 package com.example.kishi.scheduleadd;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
@@ -67,6 +68,7 @@ public class MainActivity extends ActionBarActivity {
         /* Retrieve a PendingIntent that will perform a broadcast */
         Intent alarmIntent = new Intent(MainActivity.this, CalendarAlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
+        start();
 
         //Init
         editText1 = (EditText)findViewById(R.id.editText01);
@@ -191,6 +193,13 @@ public class MainActivity extends ActionBarActivity {
         timeHolder = editText2.getText().toString().trim();
         titleHolder = editText3.getText().toString().trim();
         contentHolder = editText4.getText().toString().trim();
+    }
+
+    public void start() {
+        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 10*1000, pendingIntent);
+        Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
     }
 }
 
