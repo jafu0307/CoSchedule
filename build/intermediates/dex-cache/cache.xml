@@ -19,5 +19,23 @@
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/Users/chiafu/Downloads/scheduleAdd/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_8dfb84c94e978432b19727455eaea67fac57fa1d/classes.dex" />
     </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chiafu/AndroidStudioProjects/CoSchedule/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/chiafu/AndroidStudioProjects/CoSchedule/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_34ac076077da67167a29b77005bd373f9d613801/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chiafu/AndroidStudioProjects/CoSchedule/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="0381977b718a668f44b1815552dc509af078f3b9">
+        <dex dex="/Users/chiafu/AndroidStudioProjects/CoSchedule/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_0863975a47bb316fc92ac836aeb9586085d91d3d/classes.dex" />
+    </item>
 
 </items>

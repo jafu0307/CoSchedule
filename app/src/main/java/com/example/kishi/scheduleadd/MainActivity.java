@@ -1,5 +1,6 @@
 package com.example.kishi.scheduleadd;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
@@ -65,8 +66,16 @@ public class MainActivity extends ActionBarActivity {
 
         //SOL2
         /* Retrieve a PendingIntent that will perform a broadcast */
+        /*
         Intent alarmIntent = new Intent(MainActivity.this, CalendarAlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
+        start();
+        */
+        Intent intent2 = new Intent("BackgroundCLOCK");
+        intent.putExtra("msg","你该打酱油了");
+        PendingIntent pi = PendingIntent.getBroadcast(this,0,intent2,0);
+        AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
+        am.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),AlarmManager.INTERVAL_FIFTEEN_MINUTES,pi);
 
         //Init
         editText1 = (EditText)findViewById(R.id.editText01);
@@ -191,6 +200,14 @@ public class MainActivity extends ActionBarActivity {
         timeHolder = editText2.getText().toString().trim();
         titleHolder = editText3.getText().toString().trim();
         contentHolder = editText4.getText().toString().trim();
+    }
+
+    public void start() {
+        AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        //manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 10*1000, pendingIntent);
+        manager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES,pendingIntent);
+        Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
     }
 }
 
